@@ -9,7 +9,6 @@ import earth from "./assets/earth.jpg"
 import mars from "./assets/mars.jpg"
 import jupiter from "./assets/jupiter.jpg"
 import saturn from "./assets/saturn.jpg"
-import saturnRings from "./assets/saturn-rings.png"
 import uranus from "./assets/uranus.jpg"
 import neptune from "./assets/neptune.jpg"
 
