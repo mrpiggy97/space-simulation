@@ -1,5 +1,7 @@
 canvas{
   background-color: black;
+  background-image: url("./assets/milky-way.jpg");
+  background-position: center;
   height: 100vh;
   width: 100vw;
 }
