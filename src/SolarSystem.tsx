@@ -2,6 +2,8 @@ import { useLoader, useFrame } from "@react-three/fiber";
 import { Mesh, TextureLoader } from "three";
 import { useRef } from "react";
 import texture from "./assets/solar-texture.jpg"
+import rings from "./assets/saturn-rings.png"
+import { DoubleSide } from "three";
 
 type PlanetProps = {
     radiusX : number
@@ -30,12 +32,31 @@ function Sun() : JSX.Element{
     )
 }
 
-function Jupiter(props : PlanetProps) : JSX.Element{
+function Saturn(props : PlanetProps) : JSX.Element{
+    const ringsMap = useLoader(TextureLoader,rings)
+    const mesh = useRef<Mesh>(null!)
+    const ringMesh = useRef<Mesh>(null!)
+
+    useFrame(({clock}) => {
+        const a = clock.getElapsedTime()
+        ringMesh.current.rotation.x = a
+        const ellipseX = Math.cos(a * props.speed) * props.radiusX;
+        const ellipseY = Math.sin(a * props.speed) * props.radiusY;
+        mesh.current.position.set(ellipseX, ellipseY, 0);
+        ringMesh.current.position.set(ellipseX,ellipseY,0);
+    })
+
     return (
-        <mesh scale={props.scale}>
-            <sphereGeometry attach={"geometry"}/>
-            <ringGeometry attach={"geometry"}/>
+        <>
+        <mesh ref={mesh} scale={props.scale}>
+          <sphereGeometry attach="geometry" />
+          <meshStandardMaterial attach="material" map={props.map} />
         </mesh>
+        <mesh ref={ringMesh} scale={props.scale+0.1}>
+          <ringGeometry attach="geometry" />
+          <meshBasicMaterial attach="material" map={ringsMap} side={DoubleSide} transparent={true} />
+        </mesh>
+      </>
     )
 }
 
@@ -64,4 +85,4 @@ export default function Planet(props : PlanetProps) : JSX.Element{
     )
 }
 
-export {Sun, Jupiter}
+export {Sun, Saturn}

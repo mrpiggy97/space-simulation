@@ -2,7 +2,7 @@ import './App.css'
 
 import { Canvas, useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three'
-import Planet, {Sun, Jupiter} from './SolarSystem'
+import Planet, {Sun, Saturn} from './SolarSystem'
 import mercury from "./assets/mercury.jpg"
 import venus from "./assets/venus.jpg"
 import earth from "./assets/earth.jpg"
@@ -34,7 +34,7 @@ function App() {
       <Planet radiusX={1.9} radiusY={0} speed={2} scale={0.09} map={earthMap}/>
       <Planet radiusX={2.2} radiusY={0} speed={1.5} scale={0.08} map={marsMap}/>
       <Planet radiusX={5.5} radiusY={2.5} speed={0.8} scale={0.4} map={jupiterMap}/>
-      <Planet radiusX={7} radiusY={3} speed={0.6} scale={0.2} map={saturnMap}/>
+      <Saturn radiusX={7} radiusY={3} speed={0.6} scale={0.2} map={saturnMap}/>
       <Planet radiusX={7.7} radiusY={4} speed={0.4} scale={0.1} map={uranusMap}/>
       <Planet radiusX={8.2} radiusY={5.5} speed={0.05} scale={0.1} map={neptuneMap}/>
     </Canvas>
