@@ -1,6 +1,6 @@
 import { useLoader, useFrame } from "@react-three/fiber";
 import { Mesh, TextureLoader } from "three";
-import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useMemo, useRef } from "react";
 import texture from "./assets/solar-texture.jpg"
 import rings from "./assets/saturn-rings.png"
 import { DoubleSide } from "three";

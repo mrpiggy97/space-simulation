@@ -2,7 +2,6 @@ import './App.css'
 
 import { Canvas } from '@react-three/fiber'
 import RenderSystem from './SolarSystem'
-import { useEffect, useState } from 'react'
 
 function App() {
 
